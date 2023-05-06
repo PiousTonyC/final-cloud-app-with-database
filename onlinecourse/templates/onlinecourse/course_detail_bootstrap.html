@@ -55,7 +55,7 @@
                 <div class="text-center"><button type="button" class="btn btn-info " data-toggle="collapse" data-target="#demo">View Questions</button></div>
                 <div id="demo" class="collapse">
                     {% if user.is_authenticated %}
-                        <form id="questionform">
+                        <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post" >
                             {% for question in course.question_set.all %}
                                 <div class="card mt-1">
                                     <div class="card-header"><h5>{{ question.question}}</h5></div>
